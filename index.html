@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akmal Hisyam — Software Engineer</title>
+<meta name="description" content="Akmal Hisyam — software engineer in Malaysia working across backend PHP/MySQL, data reporting and QA. Projects: KawanKecil (Flutter + Supabase), Alcea Inventory (Laravel).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --text: #1d1d1f;
+    --muted: #5f6368;
+    --line: #e7e4df;
+    --accent: #c2410c;
+    --accent-soft: #fff1e8;
+    --chip: #f3f1ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121212;
+      --surface: #1b1b1c;
+      --text: #ececec;
+      --muted: #a3a3a3;
+      --line: #2c2c2e;
+      --accent: #fb923c;
+      --accent-soft: #2a1c12;
+      --chip: #242426;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .brand { font-weight: 700; color: var(--text); }
+  nav .links { display: flex; gap: 18px; font-size: 14px; }
+  nav .links a { color: var(--muted); }
+
+  header { padding: 72px 0 40px; }
+  .eyebrow { font: 500 13px "JetBrains Mono", monospace; color: var(--accent); letter-spacing: .02em; }
+  h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.1; margin: 10px 0 14px; letter-spacing: -0.02em; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 640px; margin: 0; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .btn {
+    display: inline-block; padding: 10px 16px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--text);
+    font-weight: 600; font-size: 14px;
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:hover { text-decoration: none; filter: brightness(0.97); }
+
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 22px; margin: 0 0 20px; letter-spacing: -0.01em; }
+
+  .tracks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
+  }
+  .card h3 { margin: 0 0 6px; font-size: 16px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  .job { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 14px 0; }
+  .job + .job { border-top: 1px dashed var(--line); }
+  .job .when { color: var(--muted); font-size: 14px; }
+  .job h3 { margin: 0; font-size: 16px; }
+  .job .org { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+  .job ul { margin: 6px 0 0; padding-left: 18px; }
+  .job li { margin: 3px 0; font-size: 15px; }
+
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .project { display: flex; flex-direction: column; gap: 10px; }
+  .shot {
+    aspect-ratio: 16 / 9; border-radius: 10px; background: var(--chip);
+    border: 1px dashed var(--line); display: grid; place-items: center;
+    color: var(--muted); font-size: 13px; overflow: hidden;
+  }
+  .shot img { width: 100%; height: 100%; object-fit: cover; }
+  .project .meta { font: 500 12px "JetBrains Mono", monospace; color: var(--accent); }
+  .project .links { display: flex; gap: 14px; font-size: 14px; margin-top: auto; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 13px; }
+  .skill-group + .skill-group { margin-top: 14px; }
+  .skill-group h3 { font-size: 13px; color: var(--muted); font-weight: 600; margin: 0 0 8px; text-transform: uppercase; letter-spacing: .04em; }
+
+  .edu div + div { margin-top: 10px; }
+  .edu strong { display: block; }
+  .edu span { color: var(--muted); font-size: 14px; }
+
+  footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  .contact { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 20px; }
+
+  @media (max-width: 720px) {
+    .tracks, .projects { grid-template-columns: 1fr; }
+    .job { grid-template-columns: 1fr; gap: 4px; }
+    nav .links { display: none; }
+    header { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Akmal Hisyam</a>
+    <div class="links">
+      <a href="#work">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <header>
+    <div class="eyebrow">Software Engineer · Kuala Lumpur, Malaysia · Open to remote</div>
+    <h1>I build and verify the systems behind the numbers.</h1>
+    <p class="lead">
+      Backend developer on a university-wide finance and asset system: PHP, MySQL stored procedures,
+      REST integrations through Mirth Connect, and the PDF/Excel reporting that finance and audit teams rely on.
+      On the side I build mobile and web apps with Flutter, Supabase and Laravel.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#contact">Get in touch</a>
+      <a class="btn" href="resume/Akmal_Hisyam_Software_Engineer.pdf">Resume — Software Engineer</a>
+      <a class="btn" href="resume/Akmal_Hisyam_Data_Analyst.pdf">Resume — Data Analyst</a>
+      <a class="btn" href="resume/Akmal_Hisyam_QA_Engineer.pdf">Resume — QA</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>What I do</h2>
+    <div class="tracks">
+      <div class="card">
+        <h3>Backend &amp; integration</h3>
+        <p>PHP and MySQL, stored procedures, REST APIs, message-queued integrations between systems.</p>
+      </div>
+      <div class="card">
+        <h3>Data &amp; reporting</h3>
+        <p>Complex SQL on live financial data, reconciliation, and PDF/Excel reports for finance and audit.</p>
+      </div>
+      <div class="card">
+        <h3>Testing &amp; QA</h3>
+        <p>API testing in Postman, SQL-level validation, root-cause defect analysis, UAT fix cycles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="when">Jan 2026 — Present</div>
+      <div>
+        <h3>Software Developer</h3>
+        <div class="org">DataScience Sdn Bhd · finance &amp; asset management system for a Malaysian public university</div>
+        <ul>
+          <li>Build and maintain screens, backend endpoints and stored procedures across asset, store and student-finance modules.</li>
+          <li>Integrate student systems with the finance system through REST APIs queued by Mirth Connect.</li>
+          <li>Deliver a reporting suite of 37+ statutory and internal reports as PDF (TCPDF), Excel (PhpSpreadsheet) and Word (PHPWord).</li>
+          <li>Validate data on live production records, trace defects to root cause, and support client UAT.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when">Jul 2024 — Oct 2024</div>
+      <div>
+        <h3>PHP Developer Intern</h3>
+        <div class="org">Merchant9 Sdn Bhd · Wangsa Maju</div>
+        <ul>
+          <li>Maintained legacy PHP/JavaScript web apps and features on a Laravel system.</li>
+          <li>Helped migrate a production database from MSSQL to MySQL.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <div class="card project">
+        <div class="shot"><!-- PLACEHOLDER: replace with <img src="img/kawankecil.png" alt="KawanKecil app screens"> -->KawanKecil screenshot</div>
+        <div class="meta">Flutter · Supabase · Riverpod · 2026 — in progress</div>
+        <h3>KawanKecil</h3>
+        <p>Childcare centre app with separate director, teacher and parent experiences: schedules, attendance,
+          staff clock-in, lesson plans and daily photo reports. Role-based access enforced with PostgreSQL Row Level Security.</p>
+        <div class="links">
+          <a href="https://github.com/AkmalCodes/kids-management">Code</a>
+          <!-- PLACEHOLDER: <a href="https://...">Landing page</a> -->
+        </div>
+      </div>
+
+      <div class="card project">
+        <div class="shot"><!-- PLACEHOLDER: replace with <img src="img/alcea.png" alt="Alcea Inventory dashboard"> -->Alcea Inventory screenshot</div>
+        <div class="meta">Laravel · MySQL · Blade · 2024</div>
+        <h3>Alcea Inventory</h3>
+        <p>Inventory app for a family-run café: stock levels at a glance and a list of what needs restocking.
+          Built in my spare time during my internship.</p>
+        <div class="links">
+          <a href="https://github.com/AkmalCodes/Alcea-Inventory">Code</a>
+        </div>
+      </div>
+
+      <div class="card project">
+        <div class="shot"><!-- PLACEHOLDER: forecast chart image -->Forecasting chart</div>
+        <div class="meta">Python · PHP · MySQL · 2025</div>
+        <h3>Inventory with Demand Forecasting</h3>
+        <p>Final year project: compared ARIMA, LightGBM and LSTM on real retail sales data and fed the best
+          forecast into an inventory workflow.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="chips"><span class="chip">PHP</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">Dart</span><span class="chip">Java</span></div>
+    </div>
+    <div class="skill-group">
+      <h3>Frameworks &amp; data</h3>
+      <div class="chips"><span class="chip">Laravel</span><span class="chip">Flutter</span><span class="chip">MySQL</span><span class="chip">PostgreSQL / Supabase</span><span class="chip">MSSQL</span><span class="chip">Stored procedures</span><span class="chip">PhpSpreadsheet</span><span class="chip">TCPDF</span></div>
+    </div>
+    <div class="skill-group">
+      <h3>Tools</h3>
+      <div class="chips"><span class="chip">Postman</span><span class="chip">Mirth Connect</span><span class="chip">Git</span><span class="chip">Docker</span><span class="chip">DBeaver</span><span class="chip">JIRA</span></div>
+    </div>
+    <div class="skill-group">
+      <h3>Languages spoken</h3>
+      <div class="chips"><span class="chip">English — fluent</span><span class="chip">Malay — fluent</span><span class="chip">German — TestDaF certified</span><span class="chip">Mandarin — beginner</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div><strong>BSc Computer Science (Software Engineering) — Multimedia University</strong><span>2021 — 2025 · CGPA 3.10</span></div>
+      <div><strong>TestDaF German Language Certificate — Sprachzentrale Leipzig</strong><span>2018</span></div>
+      <div><strong>German-Malaysian Institute — Science &amp; Mathematics</strong><span>2015 — 2017</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 style="color: var(--text)">Contact</h2>
+    <p>Open to remote and hybrid roles in backend development, data analysis and QA.</p>
+    <div class="contact">
+      <a class="btn primary" href="mailto:akmalhisyam97@gmail.com">akmalhisyam97@gmail.com</a>
+      <a class="btn" href="https://github.com/AkmalCodes">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/akmal-hisyam-tajjul-ariffin-9bb469265/">LinkedIn</a>
+    </div>
+    <p>© 2026 Akmal Hisyam</p>
+  </div>
+</footer>
+
+</body>
+</html>
